@@ -1,0 +1,19 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Register
+{% endblock %}
+
+{% block main %}
+<form action="/register" method="post" class = "register">
+    <p>Login: <input class="form-control" type="text" placeholder="Login" aria-label="Login" name="login"></p>
+    <p>Password: <input class="form-control" type="password" placeholder="Password" aria-label="Password" name="pass"></p> 
+    <p>Confirm Password:<input class="form-control" type="password" placeholder="Confirm" aria-label="Password" name="confirm"></p> 
+    <p>Name: <input class="form-control" type="text" placeholder="Name" aria-label="Name" name = "name"></p> 
+    <p>e-mail: <input class="form-control" type="text" placeholder="example@postserver.com" aria-label="e-mail" name="mail"></p> 
+    <p class = "d-grid"><button class="btn btn-outline-secondary " type="submit">Register</button></p>
+</form>
+
+
+{% endblock %}
+

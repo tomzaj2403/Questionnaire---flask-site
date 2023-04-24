@@ -1,0 +1,46 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Questionaire: {{title}}
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<ul style = "list-style-type: none;">
+<form method = "post">  
+    </div>
+        {% for question in questions %}
+        <li>
+        <div>
+            
+            {% if question["type"] == q %}
+                <hr>
+                    <p class = "createQuest">
+                    {{question["txt"]}}
+                    </p>
+                {% else %}
+                    <div class = "answer">
+                        <div>
+                        {{question["txt"]}}
+                        </div>
+                        <input type ="radio" name = {{question["q_id"]}} value  = {{question["a_id"]}} >
+                        </div>
+                    </div>     
+                           
+        </div>
+            {% endif %}
+    </li>
+    {% endfor %}
+    <hr>
+    <button class="btn btn-outline-secondary " type="submit" value = 1  name = "submit">Submit answers</button>
+</form>
+</ul>
+
+
+
+
+{% endblock %}
+

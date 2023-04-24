@@ -1,0 +1,34 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Create questionnaire
+{% endblock %}
+
+{% block main %}
+
+
+<form action="/create" method="post">
+    <p class = "questionaireName">
+        Questionaire name: <input class="form-control" type="text" placeholder="Name" aria-label="name" name="questionName">
+        <button style= "margin-left:10px;" class="btn btn-outline-secondary " type="submit">Create new questionnaire</button>
+    </p>
+</form>
+
+<form action = "/create" method = "get">
+<ol>
+    {% for question in questions %}
+    <li class = "questionaire">
+        {{question["name"]}}
+        <button style= "margin-right:10px;" class="btn btn-outline-secondary " type="submit"  method="get" value ={{question["question"]}} name = "add">Edit to add questions</button>
+        <button class="btn btn-outline-secondary " type="submit"  method="get" value ={{question["question"]}} name = "delete">Delete</button>
+        <div style = "padding-left: 10px;"><input class="form-control"    value = "{{(request.url_root) }}submition?q={{question["question"]}}&u={{question["user_id"]}}" onclick="this.select();"></div>
+    <hr>
+    {% endfor %}
+</ol>
+
+</form>
+
+
+
+{% endblock %}
+

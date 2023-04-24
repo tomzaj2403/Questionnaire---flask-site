@@ -1,0 +1,55 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Results of {{title}}
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<ul style = "list-style-type: none;">
+    {% if renderResult %}
+    <div style ="font-size: 20px; padding-top: 10px;">
+        <p>Submitions: {{submition}}</p>
+       
+    </div>
+        {% for result in renderResult %}
+        <li>
+        <div>
+            
+            {% if result["type"] == q %}
+                <hr>
+                    <p class = "createQuest">
+                    {{result["txt"]}}
+                    </p>
+                {% else %}
+
+                    <div class = "answer">
+                        <div>
+                        {{result["txt"]}}
+                        </div>
+                        <div class="progress" style = "height: 30px;">
+                            <div class="progress-bar" role="progressbar" style="width: {{result["percentage"]}}%;" aria-valuenow="{{result["percentage"]}}" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <div style ="padding-left: 10px;">{{result["percentage"]| round(2)}}%</div>
+                    </div>             
+        </div>
+            {% endif %}
+    </li>
+    {% endfor %}
+        
+    {% else %}
+    <div class="indextxt">
+        <p></p>
+        <p>There are still no submitions so there are no results</p>
+        <p></p>
+        
+    </div>
+    {% endif %}
+</ul>
+
+
+{% endblock %}
+

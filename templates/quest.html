@@ -1,0 +1,56 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Edit questionaire: {{title}}
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<ul style = "list-style-type: none;">
+    {% for question in renderQuestion %}
+    <li>
+        <div>
+            
+            {% if question["type"] == q %}
+            <hr>
+            <form action = "/quest" method = "get">
+                <p class = "createQuest">
+                {{question["txt"]}}
+                <button class="btn btn-outline-secondary " type="submit"  method="get" value ={{question["q_id"]}} name = "delete" >Delete</button>
+                </p>
+            </form>
+            
+            <form action="/quest" method="post">
+                <p class = "questionaire">
+                    <input class="form-control" type="text" placeholder="Answer " aria-label="name" name="answer" >
+                    <button style= "margin-left:10px;" class="btn btn-outline-secondary " type="submit" name="submitButton" value = {{question["q_id"]}}>Create answer</button>
+                </p>
+            </form>
+            {% else %}
+            <form action = "/quest" method = "get">
+                <p class = "createAnswer">
+                {{question["txt"]}} 
+                <button class="btn btn-outline-secondary " type="submit"  method="get" value ={{question["q_id"]}}_{{question["a_id"]}} name = "deleteAnswer" >Delete</button>
+                </p>
+            </form>
+        </div>
+        {% endif %}
+    </li>
+    {% endfor %}
+    
+</ul>
+
+<form action="/quest" method="post">
+    <p class = "questionaire" style = "padding-bottom: 30px; padding-left: 30px;">
+        <input class="form-control" type="text" placeholder="Question " aria-label="name" name="question">
+        <button style= "margin-left:10px;" class="btn btn-outline-secondary " type="submit" name="submitButton" value = "question">Create new question</button>
+    </p>
+</form>
+
+
+
+{% endblock %}
+

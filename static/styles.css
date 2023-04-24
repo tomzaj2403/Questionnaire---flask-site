@@ -1,0 +1,106 @@
+.login
+{
+    display: grid;
+    grid-template-columns: 1fr 20% 20% 100px;
+    gap: 10px;
+    padding-right: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+#login
+{
+    grid-column-start: 2;
+}
+
+.register
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top:40px;
+}
+
+p
+{
+    grid-column-start: 2;
+}
+
+.footer
+{
+    margin-top: 5px;
+    background:white;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    font-size:65%;
+    font-family:arial;
+    text-align:center;
+    border-width: 1px;
+    border-style: solid none none none;
+}
+
+.yesNo
+{
+    display:flex;
+    justify-content: center;
+    
+   
+}
+
+.questionaire
+{
+    display: grid;
+    grid-template-columns: minmax(300px,50%) 200px 100px 1fr;
+    padding-top:10px;
+    padding-right: 30px;
+    
+}
+.questionaireName
+{
+    display: grid;
+    grid-template-columns: 120px minmax(20px, 30%) 230px 1fr;
+    gap: 6px;
+    padding-top: 10px;
+    padding-left: 30px;
+    
+    
+}
+
+.indextxt
+{
+    display:grid;
+    grid-template-columns: 1fr minmax(500px, 1fr) 1fr;
+    grid-row-start: 2;
+    font-size: 20px;
+    text-align: justify;
+
+}
+
+.createQuest
+{
+    
+    display: grid;
+    grid-template-columns: minmax(300px,50%) 100px 100px;
+    padding-top:10px;
+    padding-left: 20px;
+    font-weight: bold;
+}
+
+.createAnswer
+{
+    display: grid;
+    grid-template-columns: minmax(280px,35%) 100px 100px;
+    padding-left: 40px;
+}
+
+.answer
+{
+    
+    display: grid;
+    grid-template-columns: minmax(100px,25%) 50%  50px 1fr;
+    padding-top:10px;
+    padding-left: 20px;
+    padding-right: 50px;
+}
+

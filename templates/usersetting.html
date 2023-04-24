@@ -1,0 +1,29 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Profile settings
+{% endblock %}
+
+{% block main %}
+<form action="/usersetting" method="post" class = "register">
+    <p>Change e-mail adress: <input class="form-control" type="text" placeholder="example@postserver.com" aria-label="e-mail" name="mail"></p>
+    <p class = "d-grid"><button class="btn btn-outline-secondary " type="submit">Submit new e-maill address</button></p>
+</form>
+<hr>
+<form class = "register" >
+    <p class = "d-grid"><button class="btn btn-outline-secondary " type="submit"  acction ="/usersetting" method="get" name = "delete" value = 1>Delete account{{question2}}</button></p>
+</form>
+
+{% if question %}
+<p style="color: red; display: flex; justify-content: center;">Are you sure you want to delete this account ? You can't undo it!</p>
+    <form id = "login" class = "yesNo">
+            <button  style="margin-right: 10px;" class="btn btn-outline-danger " type="submit" action = "/usersetting" method="get" value ="YES" name = "delete">YES</button>
+            <button  style="margin-left: 10px;" class="btn btn-outline-success " type="submit" action = "/usersetting" method="get" value ="NO" name = "delete">NO</button>
+    </form>
+
+{% endif %}
+
+
+
+{% endblock %}
+

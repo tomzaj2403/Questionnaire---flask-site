@@ -1,0 +1,32 @@
+{% extends "layout.html"%}
+
+{% block titile %}
+Wiev results
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<form action = "/result_list" method = "get">
+<ol>
+    <hr>
+    {% for question in questions %}
+    
+    <li class = "questionaire">
+        {{question["name"]}}
+        <button style= "margin-right:10px;" class="btn btn-outline-secondary " type="submit"  method="get" value ={{question["question"]}} name = "resultView">View results</button>
+    </li>
+    <hr>
+    
+    {% endfor %}
+
+</ol>
+
+</form>
+
+<!-- {{ url_for(request.endpoint) }} -->
+
+{% endblock %}
+
