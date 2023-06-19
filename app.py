@@ -5,6 +5,7 @@ from flask import Flask, flash, redirect, render_template, request, session
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from flask_session import Session
+from validator_collection import checkers
 
 # Configure application
 app = Flask(__name__)
@@ -56,8 +57,8 @@ def registr():
             return render_template("register.html")
         
         #checking is mail format correct
-        mail = request.form.get("mail")    
-        if "@" not in mail or "." not in mail:
+        mail = request.form.get("mail")   
+        if not checkers.is_email(mail):
             flash("Wrong e-mail adress!", "error")
             return render_template("register.html")
         
@@ -341,7 +342,7 @@ def submition():
                     tempInsertion["a_id"] = result
                     insertion.append(tempInsertion)
                 else:
-                    flash ("Yoy have to answer all questions")
+                    flash ("You have to answer all questions")
                     return redirect(f"/submition?q={quest_id}&u={user_id}")
         for answer in insertion:
             conn.execute("UPDATE quest SET result = result + 1 WHERE quest_id = ? AND q_id =? AND a_id = ?",[quest_id, answer["q_id"], answer["a_id"]])
